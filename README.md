@@ -4,10 +4,10 @@ Cribbing fairly heavily from a previous version by Denise Malan and Liz Lucas
 
 ## Which one is latitude?
 
-Latitude = Y axis (north and south)
-Longitude = X axis (east and west) -- Think long and not tall.
+Latitude = Y axis (north and south)  
+Longitude = X axis (east and west) -- Think long and not tall 
 
-###############################################33
+###############################################
 
 ### Style stuff to pull from
 
