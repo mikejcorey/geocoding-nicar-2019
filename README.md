@@ -15,10 +15,10 @@ No, we are going to talk about boring but important things first.
 
 ## How many things do you need to geocode?
 
-1 thing: Google it.
-10 things: Google them.
-100 things: You have so many choices!
-50,000 things: OoooOooooOOOooooo. Meet the Texas A&M Geocoder.*
+1 thing: Google it.  
+10 things: Google them.  
+100 things: You have so many choices!  
+50,000 things: OoooOooooOOOooooo. Meet the Texas A&M Geocoder.*  
 
 _*Or do it with the Google Geocoding API, if you're going to put it on a Google Map._
 
