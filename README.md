@@ -1,4 +1,15 @@
-## Welcome to GitHub Pages
+Cribbing fairly heavily from a previous version by Denise Malan and Liz Lucas
+
+## What is geocoding?
+
+## Which one is latitude?
+
+Latitude = Y axis (north and south)
+Longitude = X axis (east and west) -- Think long and not tall.
+
+###############################################33
+
+### Style stuff to pull from
 
 You can use the [editor on GitHub](https://github.com/mikejcorey/geocoding-nicar-2019/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
