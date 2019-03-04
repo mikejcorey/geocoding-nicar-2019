@@ -82,7 +82,7 @@ Tell Geocod.io which columns to use:
 
 Depending on what you're doing with your data, you might want to append demographic stats for a given address as you geocode. You can do this on your own without Geocod.io, and there is a small cost, but this can save you a lot of time and hassle!
 
-![Our spreadsheet](img/geocod.io/geocod.io_appends.png)
+![Appends](img/geocod.io/geocod.io_appends.png)
 
 ... But for today, we don't need anything else, just the points. Click "continue."
 
@@ -90,23 +90,43 @@ Depending on what you're doing with your data, you might want to append demograp
 
 ## Now we wait
 
-![Our spreadsheet](https://media.giphy.com/media/vdsISoCQMga9G/giphy.gif)
+![Now we wait](https://media.giphy.com/media/vdsISoCQMga9G/giphy.gif)
 
 ## The hard/important part: Check the results
 
-![Our spreadsheet](img/geocod.io/geocod.io_list.png)
+![Your list of geocoded datasets](img/geocod.io/geocod.io_list.png)
 
 View map for a visual bullshit check...
 
-![Our spreadsheet](img/geocod.io/geocod.io_map_results.png)
+![Map results](img/geocod.io/geocod.io_map_results.png)
 
 But we need to do better than that and understand what the geocoder did with each address.
 
-![Our spreadsheet](https://pics.me.me/look-harder-memecrunch-com-29709775.png)
+![Lion King Look Harder](https://pics.me.me/look-harder-memecrunch-com-29709775.png)
 
-# Example 2: City-level data with Geocod.io
+Yes, we have our purported latitude and longitudes. But how accurate are those results? A good geocoder tells you more. We get an numerical score, the method used to place this row, and even the original source of the data used. This allows us to make an educated decision about whether each point (or type of result) is good enough to be used. Note: The numerical score and the method are not the same thing.
+
+![Geocoding results, highlighted](img/geocod.io/geocoding_results_highlighted.png)
+
+#### Common match methods
+- rooftop
+- nearest_rooftop_match
+- range_interpolation
+
+# Example 2: City-level data
+
+Sometimes, often with a national map, it's sufficient to place points in the center of a city. Other times, you might only have city-level precision.
 
 ## Rules of the road
+- Some cities are very big, so if you're zoomed in close this could be misleading
+
+- Generally the point will map to the CENTROID, or geographic center, of a city, which may or may not be anywhere near the center of activity.
+
+### Los Angeles centroid: in the hills
+![Los Angeles](img/geocod.io/los_angeles_centroid.png)
+
+### San Francisco centroid: in the water
+![San Francisco](img/geocod.io/san_francisco_centroid.png)
 
 ## Find unique cities
 
