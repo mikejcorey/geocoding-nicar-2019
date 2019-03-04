@@ -1,4 +1,4 @@
-_Cribbing fairly heavily from a previous version by Denise Malan and Liz Lucas_
+_Cribbing from a previous version by Denise Malan and Liz Lucas_
 
 ## What is geocoding?
 
@@ -40,7 +40,12 @@ Always read the terms of service, and don't assume you won't get caught
 
 ## Prepping your data
 
-Ideally, you'll have address, city and state in separate columns.
+Ideally, you'll have address, city, state and zip in separate columns.
+
+Many times you will get data where the addresses have typos, misspellings, or are missing the directional prefix (such as N. for North) or the suffix (such as St. for Street). In these cases it is
+best to try and do some cleaning before you geocode. If you put garbage in, you get garbage out.
+
+It’s also often important to have a zip code; many geocoders will not work or give you bad results without them. If you didn’t get zip codes, consider whether it’s feasible to put them in.
 
 ![Our spreadsheet](img/geocod.io/spreadsheet.png)
 
@@ -130,6 +135,43 @@ Sometimes, often with a national map, it's sufficient to place points in the cen
 
 ## Find unique cities
 
+- Copy your city and state columns to a new spreadsheet
+
+- Make a third column in the new spreadsheet, with the two cells merged (separated by comma)
+
+- Find the distinct rows
+
+- Geocode this spreadsheet
+
 ## Merge back into your data
 
+VLOOKUP(WHAT_TO_MATCH_ON_LEFT, WHAT_DATA_TO_MATCH_IT_TO_RIGHT, WHAT_CELL_IN_RIGHT_DATA_TO_PUT_HERE)
+
 # When geocoding goes wrong
+
+### Null Island
+One common error is placing the point at (0,0).
+
+A good check is to sort your results by latitude then longitude to check for duplicates all placed at the same point or at (0,0). If you find some, those addresses might need more work for the geocoding service to place them correctly.
+
+Doing these integrity checks are very important, so that you don’t miss something like this:
+
+http://www.vox.com/2014/4/21/5636040/whats-the-matter-with-kansas-and-porn
+
+VOX did an analysis of internet porn traffic by getting IP address data from Pornhub.com, one of the largest internet porn sites, and geocoding the IP addresses. As their title suggests, they found that Kansas was the home to a crazy amount of porn traffic, and said so. In fact, it wasn’t just Kansas, it was one city in particular: Wichita.
+
+After publishing their results, it came out that Wichita was so off the charts because it is in the center of the country. When the geocoder couldn’t place the IP addresses exactly, it used the whole country as its matching geography type and plopped them right in the center of that geography, right onto Wichita. Vox changed the headline and published a correction at the top of the story.
+
+_For great commentary on all the things that were not great about this analysis, [go here](https://source.opennews.org/articles/distrust-your-data/)._
+
+## Final words!
+
+When you get data that contains addresses and you’re tempted to jump straight to the geocoder, ask yourself a few questions first:
+!
+1. Why do I want to see these addresses on a map? Will it help me understand the scope of the data? Are geographic clusters potentially important? Could these locations have a spatial relationship (close together, far apart, clustered, segregated, etc) that would be meaningful?
+
+2. What does the data look like? Are the addresses neat, containing all the necessary pieces: prefix (such as N. for North), suffix (such as St. for Street), standardized names (without a lot of misspellings or typos), a zip code? If its missing one or more of these things, how hard will it be to clean the data up?
+
+3. How important is the accuracy to the zip code? If you just want to look at your data points zoomed out at the county or state level, you can accommodate more relaxed geocoding; if a point is plotted a block or two away from where it should be, looking at the state level that is not necessarily a big deal. But if you want to really zoom in and see points plotted at the street level, accuracy is more important.
+
+Remember that geocoding is not an exact science and no geocoders will be perfect; diligently check results and look at all the information available to you to assess how well your addresses were geocoded.
