@@ -18,7 +18,7 @@ No, we are going to talk about boring but important things first.
 1 thing: Google it.  
 10 things: Google them.  
 100 things: You have so many choices!  
-10,000 things: OoooOooooOOOooooo. Meet Geocod.io.*  
+10,000 things: OoooOooooOOOooooo. Meet [Geocod.io](https://geocod.io).*  
 Outside North America: Your mileage may vary  
 
 _*Or do it with the Google Geocoding API, if you're going to put it on a Google Map._
@@ -174,4 +174,4 @@ When you get data that contains addresses and you’re tempted to jump straight 
 
 3. How important is the accuracy to the zip code? If you just want to look at your data points zoomed out at the county or state level, you can accommodate more relaxed geocoding; if a point is plotted a block or two away from where it should be, looking at the state level that is not necessarily a big deal. But if you want to really zoom in and see points plotted at the street level, accuracy is more important.
 
-Remember that geocoding is not an exact science and no geocoders will be perfect; diligently check results and look at all the information available to you to assess how well your addresses were geocoded.
+# Final final words: Geocoding is not an exact science and no geocoder will be perfect.
