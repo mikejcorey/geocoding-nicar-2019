@@ -117,6 +117,7 @@ Yes, we have our purported latitude and longitudes. But how accurate are those r
 - rooftop
 - nearest_rooftop_match
 - range_interpolation
+- place
 
 # Example 2: City-level data
 
@@ -125,7 +126,7 @@ Sometimes, often with a national map, it's sufficient to place points in the cen
 ## Rules of the road
 - Some cities are very big, so if you're zoomed in close this could be misleading
 
-- Generally the point will map to the CENTROID, or geographic center, of a city, which may or may not be anywhere near the center of activity.
+- In the crudest method, the point could map to the CENTROID, or geographic center, of a city, which may or may not be anywhere near the center of activity.
 
 ### Los Angeles centroid: in the hills
 ![Los Angeles](img/geocod.io/los_angeles_centroid.png)
@@ -133,19 +134,27 @@ Sometimes, often with a national map, it's sufficient to place points in the cen
 ### San Francisco centroid: in the water
 ![San Francisco](img/geocod.io/san_francisco_centroid.png)
 
-## Find unique cities
+(Luckily, Geocod.io relies on U.S. Census TIGER "places," which are generally sensible city centers.)
+
+## Avoid duplication: Find unique cities
 
 - Copy your city and state columns to a new spreadsheet
 
-- Make a third column in the new spreadsheet, with the two cells merged (separated by comma)
-
 - Find the distinct rows
+
+![Distinct values](img/excel/excel_remove_duplicates_circled.png)
 
 - Geocode this spreadsheet
 
-## Merge back into your data
+## If you need to merge back into your data
 
-VLOOKUP(WHAT_TO_MATCH_ON_LEFT, WHAT_DATA_TO_MATCH_IT_TO_RIGHT, WHAT_CELL_IN_RIGHT_DATA_TO_PUT_HERE)
+Perform a VLOOKUP in Excel:
+```
+VLOOKUP(WHAT_TO_MATCH_ON_LEFT,
+  WHAT_DATA_TO_MATCH_IT_TO_RIGHT,
+  WHAT_CELL_IN_RIGHT_DATA_TO_PUT_HERE, 0)
+```
+
 
 # When geocoding goes wrong
 
